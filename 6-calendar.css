@@ -1,0 +1,92 @@
+/* (A) FONT */
+html, body { font-family: arial, sans-serif; }
+
+/* (B) PERIOD SELECTOR */
+#calPeriod input, #calPeriod select {
+  padding: 10px;
+  font-size: 1.5em;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
+#calmonth { width: 180px; }
+#calyear { width: 100px; text-align: center; }
+
+/* (C) CALENDAR */
+#calwrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.calsq {
+  box-sizing: border-box;
+  width: 14.28%;
+  padding: 5px;
+}
+.calsq.head {
+  color: #fff;
+  background: #5250da;
+  font-weight: bold;
+  text-align: center;
+}
+.calsq.blank, .calsq.day {
+  height: 120px;
+  overflow-y: auto;
+  border: 1px solid #eee;
+}
+.calsq.blank { background: #f2f2f2; }
+.calsq.today { background: #fbffde; }
+.calnum { color: #888; }
+.calevt {
+  height: 20px;
+  font-size: 0.8em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.calninja { display: none; }
+
+/* (D) EVENT FORM */
+#calblock {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 998;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.2s;
+  opacity: 0;
+  visibility: hidden;
+}
+#calblock.show {
+  opacity: 1;
+  visibility: visible;
+}
+#calform {
+  z-index: 999;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 320px;
+  max-width: 400px;
+  background: #fafafa;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 320px;
+}
+#calform label, #calform input, #calform textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+  resize: none;
+}
+#calform label { margin-top: 10px; }
+#calformsave, #calformdel, #calformcx {
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 0 !important;
+  margin-top: 10px;
+}
+#calformsave { background: #5250da; }
+#calformdel, #calformcx { background: #a22a2a; }
